@@ -7,6 +7,8 @@ namespace ApiAnimals.Dtos
 {
     public class RazaDto
     {
-        
+    public int Id { get; set; }
+    
+    public string NombrePais {get; set;} 
     }
 }

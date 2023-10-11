@@ -19,7 +19,7 @@ public void Configure(EntityTypeBuilder<Ciudad> builder)
         .IsRequired()
         .HasMaxLength(50);
     
-    builder.HasOne(p => p.Departamentos)
+    builder.HasOne(p => p.departamentos)
         .WithMany(e => e.Ciudades)
         .HasForeignKey(f => f.IdDepartamento);
 

@@ -21,7 +21,7 @@ public void Configure(EntityTypeBuilder<Cita> builder)
     builder.Property(p => p.Hora)
         .HasColumnType("time");
 
-    builder.HasOne(p => p.Clientes)
+    builder.HasOne(p => p.clientes)
         .WithMany(e => e.Citas)
         .HasForeignKey(f => f.IdCliente);
     
