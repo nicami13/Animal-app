@@ -7,7 +7,7 @@ namespace Core.Interfaces
 {
     public interface IUnitOfWork
     {
-
+        IServicioRepository Servicio {get;}
         IMascotaRepository Mascotas {get;}
         IPaisRepository Paises {get;}
 
