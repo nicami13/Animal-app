@@ -21,8 +21,8 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<AnimalsContext>(options =>
 {
-    string connectionString = builder.Configuration.GetConnectionString("MysqlConex");
-    options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
+    string connectionStrings = builder.Configuration.GetConnectionString("MysqlConex");
+    options.UseMySql(connectionStrings, ServerVersion.AutoDetect(connectionStrings));
 });
  void ConfigureServices(IServiceCollection services)
     {

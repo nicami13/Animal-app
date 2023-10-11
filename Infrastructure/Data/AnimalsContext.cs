@@ -14,7 +14,7 @@ public class AnimalsContext : DbContext
 
     public DbSet<Departamento> Departamentos {get; set;}
 
-    public DbSet<Ciudad> Cidades {get; set;}
+    public DbSet<Ciudad> Ciudades {get; set;}
 
     public DbSet<Mascota> Mascotas {get; set;}
 
