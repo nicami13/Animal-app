@@ -4,69 +4,70 @@ using Core.Interfaces;
 using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 
+namespace Infrastructure.Repositories;
 public class GenericRepository<T> : IGenericRepository<T> where T : BaseEntity
 {
 
-    private readonly AnimalsContext ? _context;
+    private readonly AnimalsContext _context;
 
-    public GenericRepository(AnimalsContext ? context)
+    public GenericRepository(AnimalsContext context)
     {
-        context=_context;
+        _context = context;
     }
 
-    public virtual void Add(T entity)
+    public  void Add(T entity)
     {
         _context.Set<T>().Add(entity);
     }
 
-    public virtual void AddRange(IEnumerable<T> entities)
+    public  void AddRange(IEnumerable<T> entities)
     {
         _context.Set<T>().AddRange(entities);
     }
 
     public virtual IEnumerable<T> Find(Expression<Func<T, bool>> expression)
     {
-         return _context.Set<T>().Where(expression);
+        return _context.Set<T>().Where(expression);
     }
 
     public virtual async Task<IEnumerable<T>> GetAllAsync()
     {
-           return await _context.Set<T>().ToListAsync();
+        return await _context.Set<T>().ToListAsync();
     }
 
     public virtual async Task<(int totalRegistros, IEnumerable<T> Registros)> GetAllAsync(int pageIndex, int pageSize, string search)
     {
-           var totalRegistros = await _context.Set<T>().CountAsync();
-            var registros = await _context
-                .Set<T>()
-                .Skip((pageIndex - 1) * pageSize)
-                .Take(pageSize)
-                .ToListAsync();
-            return (totalRegistros, registros);
+        var totalRegistros = await _context.Set<T>().CountAsync();
+        var registros = await _context
+            .Set<T>()
+            .Skip((pageIndex - 1) * pageSize)
+            .Take(pageSize)
+            .ToListAsync();
+        return (totalRegistros, registros);
     }
 
     public virtual async Task<T> GetByIdAsync(int id)
     {
-            return await _context.Set<T>().FindAsync(id);
+        return await _context.Set<T>().FindAsync(id);
     }
 
     public virtual async Task<T> GetByIdAsync(string id)
-        {
-            return await _context.Set<T>().FindAsync(id);
-        }
-
-    public virtual void Remove(T entity)
     {
-           _context.Set<T>().Remove(entity);
+        return await _context.Set<T>().FindAsync(id);
     }
 
-    public virtual void RemoveRange(IEnumerable<T> entities)
+    public void Remove(T entity)
     {
-           _context.Set<T>().RemoveRange(entities);
+        _context.Set<T>().Remove(entity);
     }
 
-    public virtual void Update(T entity)
+    public  void RemoveRange(IEnumerable<T> entities)
     {
-           _context.Set<T>().Update(entity);
+        _context.Set<T>().RemoveRange(entities);
+    }
+
+    public  void Update(T entity)
+    {
+        _context.Set<T>().Update(entity);
     }
 }

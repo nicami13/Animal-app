@@ -10,9 +10,9 @@ namespace Infrastructure.Repositories
 {
     public class CitaRepository : GenericRepository<Cita>, ICitaRepository
     {
-        private readonly AnimalsContext? _context;
+        private readonly AnimalsContext _context;
 
-        public CitaRepository(AnimalsContext? context) : base(context)
+        public CitaRepository(AnimalsContext context) : base(context)
         {
             _context = context;
         }

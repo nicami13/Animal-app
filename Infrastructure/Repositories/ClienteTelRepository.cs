@@ -10,9 +10,9 @@ namespace Infrastructure.Repositories
 {
     public class ClienteTelRepository : GenericRepository<ClienteTelefono>, IClienteTelRepository
     {
-        private readonly AnimalsContext? context;
+        private readonly AnimalsContext context;
 
-        public ClienteTelRepository(AnimalsContext? context) : base(context)
+        public ClienteTelRepository(AnimalsContext context) : base(context)
         {
             this.context = context;
         }

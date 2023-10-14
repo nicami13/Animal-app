@@ -11,23 +11,22 @@ namespace Infrastructure.Repositories
 {
     public class CiudadRepository : GenericRepository<Ciudad>, ICiudadRepository
     {
-        private readonly AnimalsContext? _context;
+        private readonly AnimalsContext _context;
 
-        public CiudadRepository(AnimalsContext? context) : base(context)
+        public CiudadRepository(AnimalsContext context) : base(context)
         {
-            _Context = context;
+            _context = context;
         }
 
-        public AnimalsContext? _Context { get; }
 
         public override async Task <IEnumerable<Ciudad>> GetAllAsync(){
-            return await _Context.Ciudades
+            return await _context.Ciudades
             .Include(p=> p.ClienteDireccion)
             .ToListAsync();
         }
-        public virtual async Task<(int totalRegistros, IEnumerable<Ciudad> Registros)> GetAllAsync(int pageIndex, int pageSize, string search)
+        public override async Task<(int totalRegistros, IEnumerable<Ciudad> Registros)> GetAllAsync(int pageIndex, int pageSize, string search)
     {
-        var query =_Context.Ciudades as IQueryable<Ciudad>;
+        var query =_context.Ciudades as IQueryable<Ciudad>;
         if(!string.IsNullOrEmpty(search)){
             query=query.Where(p => p.NombreCiudad.ToLower().Contains(search));
         }

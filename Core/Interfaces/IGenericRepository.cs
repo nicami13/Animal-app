@@ -5,8 +5,7 @@ using System.Linq.Expressions;
 using System.Threading.Tasks;
 using core.Entites;
 
-namespace Core.Interfaces
-{
+namespace Core.Interfaces;
     public interface IGenericRepository<T>where T :BaseEntity
     {
         Task<T> GetByIdAsync(int id);
@@ -27,4 +26,3 @@ namespace Core.Interfaces
 
         void Update(T entity);
     }
-}

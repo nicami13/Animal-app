@@ -11,15 +11,15 @@ namespace Core.Entities;
     {
         [Required]
 
-        public string ? Nombre {get; set;}
+        public string  Nombre {get; set;}
 
         [Required]
 
-        public string ? Especie {get; set;}
+        public string  Especie {get; set;}
 
         [Required]
 
-        public int ? IdRaza {get; set;}
+        public int  IdRaza {get; set;}
         
         public Raza Raza {get; set;}
 
@@ -31,7 +31,7 @@ namespace Core.Entities;
 
         public int IdCliente {get; set;} 
 
-        public Cliente clientes {get; set;}
+        public Cliente Clientes {get; set;}
 
         public ICollection<Cita> Citas {get; set;}
     }

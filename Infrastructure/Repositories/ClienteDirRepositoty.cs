@@ -11,11 +11,11 @@ namespace Infrastructure.Repositories
 {
     public class ClienteDirRepositoty:GenericRepository<ClienteDireccion>,IClienteDirRepository
     {
-        private AnimalsContext? _Context;
+        private AnimalsContext _context;
 
-        public ClienteDirRepositoty(AnimalsContext? context) : base(context)
+        public ClienteDirRepositoty(AnimalsContext context) : base(context)
         {
-            _Context = context;
+            _context = context;
         }
 
     }

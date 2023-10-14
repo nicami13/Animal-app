@@ -17,17 +17,17 @@ namespace Core.Entities;
         [Required]
         public int IdCliente {get; set;}
 
-        public Cliente ? clientes {get; set;}
+        public Cliente  Clientes {get; set;}
 
         [Required]
 
         public int IdMascota { get; set; }
 
-        public Mascota ? Mascotas {get; set;}
+        public Mascota  Mascotas {get; set;}
 
         [Required]
 
         public int IdServicio { get; set; }
 
-        public Servicio ?  Servicios {get; set;}
+        public Servicio Servicios {get; set;}
     }

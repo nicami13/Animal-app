@@ -19,7 +19,7 @@ public void Configure(EntityTypeBuilder<ClienteTelefono> builder)
         .IsRequired()
         .HasMaxLength(30);
 
-    builder.HasOne(p => p.clientes)
+    builder.HasOne(p => p.Clientes)
         .WithMany(e => e.ClienteTelefonos)
         .HasForeignKey(f => f.IdCliente);
 

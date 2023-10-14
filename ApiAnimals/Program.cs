@@ -10,34 +10,19 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 
-builder.Services.ConfigureRatelimiting();
+// builder.Services.ConfigureRatelimiting();
 
-builder.Services.AddAutoMapper(Assembly.GetEntryAssembly());
-builder.Services.ConfigureCors();
-builder.Services.AddAplicationServices();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddAplicationServices();
+builder.Services.AddAutoMapper(Assembly.GetEntryAssembly());
 
 builder.Services.AddDbContext<AnimalsContext>(options =>
 {
-    string connectionStrings = builder.Configuration.GetConnectionString("MysqlConex");
-    options.UseMySql(connectionStrings, ServerVersion.AutoDetect(connectionStrings));
+    string connectionString = builder.Configuration.GetConnectionString("MysqlConex");
+    options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
 });
- void ConfigureServices(IServiceCollection services)
-    {
-        // ... otras configuraciones
-
-        services.AddDbContext<AnimalsContext>(options =>
-        {
-            string connectionString = builder.Configuration.GetConnectionString("MysqlConex");
-            options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
-        });
-
-        // ... otras configuraciones
-    }
-
-
 
 var app = builder.Build();
 
@@ -50,7 +35,6 @@ if (app.Environment.IsDevelopment())
 app.UseCors("CorsPolicy");
 
 app.UseHttpsRedirection();
-
 app.UseIpRateLimiting();
 
 app.UseAuthorization();

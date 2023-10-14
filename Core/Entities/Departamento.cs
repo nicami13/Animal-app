@@ -10,9 +10,9 @@ namespace Core.Entities;
     {
     public int IdPais { get; set; }
 
-    public string ? NombreDepartamento {get; set;} 
+    public string  NombreDepartamento {get; set;} 
 
-    public Pais ? Paises { get; set; }
+    public Pais  Paises { get; set; }
 
     public ICollection<Ciudad> Ciudades {get; set;}
     }

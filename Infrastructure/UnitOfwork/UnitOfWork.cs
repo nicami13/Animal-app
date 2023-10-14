@@ -16,7 +16,7 @@ namespace Infrastructure.UnitOfwork
 
         private CiudadRepository _ciudades;
 
-        private ClienteRepository _Cliente;
+        private ClienteRepository _cliente;
 
         private ClienteDirRepositoty _clienteDirs;
 
@@ -36,79 +36,121 @@ namespace Infrastructure.UnitOfwork
             _context = context;
         }
 
-        public IPaisRepository Paises{
-            get{
-                if(_paises==null){
-                    _paises= new PaisRepository(_context);
+        public IPaisRepository Paises
+        {
+            get
+            {
+                if (_paises == null)
+                {
+                    _paises = new PaisRepository(_context);
                 }
                 return _paises;
             }
         }
 
-        public IDepartamentoRepository Departamentos{
-            get{
-                if(_departamentos==null){
-                    _departamentos= new DepartamentoRepository(_context);
+        public IDepartamentoRepository Departamentos
+        {
+            get
+            {
+                if (_departamentos == null)
+                {
+                    _departamentos = new DepartamentoRepository(_context);
                 }
                 return _departamentos;
             }
         }
 
-        public IClienteRepository Clientes{
-            get{
-                if(_Cliente==null){
-                    _Cliente= new ClienteRepository(_context);
+        public IClienteRepository clientes
+        {
+            get
+            {
+                if (_cliente == null)
+                {
+                    _cliente = new ClienteRepository(_context);
                 }
-                return _Cliente;
+                return _cliente;
             }
         }
-        public ICiudadRepository Ciudades{
-            get{
-                if(_ciudades==null){
-                    _ciudades= new CiudadRepository(_context);
+
+        public IClienteRepository Clientes => throw new NotImplementedException();
+
+        public ICiudadRepository Ciudades
+        {
+            get
+            {
+                if (_ciudades == null)
+                {
+                    _ciudades = new CiudadRepository(_context);
                 }
                 return _ciudades;
             }
         }
 
-        public IDepartamentoRepository Departamento{
-            get{
-                if(_departamentos==null){
-                    _departamentos= new DepartamentoRepository(_context);
-                }
-                return _departamentos;
-            }
-        }
-
-        public ICitaRepository citas {
-            get{
-                if (_citas==null){
-                    _citas= new CitaRepository(_context);
+        public ICitaRepository citas
+        {
+            get
+            {
+                if (_citas == null)
+                {
+                    _citas = new CitaRepository(_context);
                 }
                 return _citas;
             }
         }
-        
 
-        public IClienteTelRepository ClienteTelefonos {
-            get{
-                if (_clienteTels==null){
-                    _clienteTels= new ClienteTelRepository(_context);
+
+        public IClienteTelRepository ClienteTelefonos
+        {
+            get
+            {
+                if (_clienteTels == null)
+                {
+                    _clienteTels = new ClienteTelRepository(_context);
                 }
                 return _clienteTels;
             }
         }
 
-        public IClienteDirRepository ClienteDirecciones {
-            get{
-                if(_clienteDirs==null){
-                    _clienteDirs= new ClienteDirRepositoty(_context);
+        public IClienteDirRepository ClienteDirecciones
+        {
+            get
+            {
+                if (_clienteDirs == null)
+                {
+                    _clienteDirs = new ClienteDirRepositoty(_context);
                 }
                 return _clienteDirs;
             }
         }
 
-        public async void Dispose()
+        public IServicioRepository ServicioRepository
+        {
+            get
+            {
+                _servicios ??= new ServicioRepository(_context);
+                return _servicios;
+            }
+        }
+        
+        public IMascotaRepository MascotaRepository
+        {
+            get
+            {
+                _mascotas ??= new MascotaRepository(_context);
+                return _mascotas;
+            }
+        }
+
+        public IRazaRepository RazaRepository
+        {
+            get
+            {
+                _razas ??= new RazaRepository(_context);
+                return _razas;
+            }
+        }
+
+        public void Dispose()
         {
             _context.Dispose();
         }

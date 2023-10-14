@@ -59,7 +59,7 @@ public void Configure(EntityTypeBuilder<ClienteDireccion> builder)
         .WithOne(e => e.ClienteDireccion)
         .HasForeignKey<ClienteDireccion>(f => f.IdCliente);
     
-    builder.HasOne(p => p.ciudades)
+    builder.HasOne(p => p.Ciudades)
         .WithOne(e => e.ClienteDireccion)
         .HasForeignKey<ClienteDireccion>(f => f.IdCiudad);
 

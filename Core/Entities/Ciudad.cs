@@ -8,12 +8,12 @@ namespace Core.Entities;
 
     public class Ciudad:BaseEntity
     {
-        public string ? NombreCiudad {get; set;} 
+        public string  NombreCiudad {get; set;} 
 
         public int IdDepartamento { get; set; }
 
-        public Departamento ? departamentos { get; set; }
+        public Departamento  Departamentos { get; set; }
 
-        public ClienteDireccion ? ClienteDireccion {get; set;}
+        public ClienteDireccion  ClienteDireccion {get; set;}
 
 }

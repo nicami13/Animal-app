@@ -10,11 +10,11 @@ namespace Infrastructure.Repositories
 {
     public class MascotaRepository : GenericRepository<Mascota>, IMascotaRepository
     {
-        private readonly AnimalsContext? _context;
+        private readonly AnimalsContext _context;
 
-        public MascotaRepository(AnimalsContext? context) : base(context)
+        public MascotaRepository(AnimalsContext context) : base(context)
         {
-           _context = context;
+            _context = context;
         }
     }
 }

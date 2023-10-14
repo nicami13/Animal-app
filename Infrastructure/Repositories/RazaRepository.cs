@@ -10,9 +10,9 @@ namespace Infrastructure.Repositories
 {
     public class RazaRepository : GenericRepository<Raza>, IRazaRepository
     {
-        private readonly AnimalsContext? _context;
+        private readonly AnimalsContext _context;
 
-        public RazaRepository(AnimalsContext? context) : base(context)
+        public RazaRepository(AnimalsContext context) : base(context)
         {
             _context = context;
         }

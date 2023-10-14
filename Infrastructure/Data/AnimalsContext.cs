@@ -24,7 +24,7 @@ public class AnimalsContext : DbContext
 
     public DbSet<ClienteDireccion> ClienteDirecciones {get; set;}
 
-    public DbSet<ClienteTelefono> clienteTelefonos {get; set;}
+    public DbSet<ClienteTelefono> ClienteTelefonos {get; set;}
     public DbSet<Cita> Citas {get; set;}
 
     

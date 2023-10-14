@@ -10,9 +10,9 @@ namespace Infrastructure.Repositories
 {
     public class ServicioRepository : GenericRepository<Servicio>, IServicioRepository
     {
-        private readonly AnimalsContext? _context;
+        private readonly AnimalsContext _context;
 
-        public ServicioRepository(AnimalsContext? context) : base(context)
+        public ServicioRepository(AnimalsContext context) : base(context)
         {
             _context = context;
         }

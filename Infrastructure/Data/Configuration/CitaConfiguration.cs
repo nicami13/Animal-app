@@ -21,7 +21,7 @@ public void Configure(EntityTypeBuilder<Cita> builder)
     builder.Property(p => p.Hora)
         .HasColumnType("time");
 
-    builder.HasOne(p => p.clientes)
+    builder.HasOne(p => p.Clientes)
         .WithMany(e => e.Citas)
         .HasForeignKey(f => f.IdCliente);
     
@@ -30,7 +30,7 @@ public void Configure(EntityTypeBuilder<Cita> builder)
         .HasForeignKey(f => f.IdMascota);
     
     builder.HasOne(p => p.Servicios)
-        .WithMany(e => e.citas)
+        .WithMany(e => e.Citas)
         .HasForeignKey(f => f.IdServicio);
 }
 }

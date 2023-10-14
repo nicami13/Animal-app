@@ -9,15 +9,14 @@ namespace Core.Entities;
 
     public class Servicio:BaseEntity
     {
-    public object? id;
 
     [Required]
 
-        public string ? Nombre {get; set;} 
+        public string  Nombre {get; set;} 
 
         [Required]
 
         public double Precio {get; set;} 
 
-        public ICollection<Cita> citas {get; set;}
+        public ICollection<Cita> Citas {get; set;}
     }
