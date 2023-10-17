@@ -18,6 +18,9 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddAplicationServices();
 builder.Services.AddAutoMapper(Assembly.GetEntryAssembly());
 
+builder.Services.ConfigureRatelimiting();
+builder.Services.ConfigureCors();
+
 builder.Services.AddDbContext<AnimalsContext>(options =>
 {
     string connectionString = builder.Configuration.GetConnectionString("MysqlConex");
@@ -34,8 +37,9 @@ if (app.Environment.IsDevelopment())
 }
 app.UseCors("CorsPolicy");
 
-app.UseHttpsRedirection();
 app.UseIpRateLimiting();
+
+app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
