@@ -6,8 +6,5 @@ using Core.Entities;
 
 namespace Core.Interfaces
 {
-    public interface IClienteDirRepository: IGenericRepository<ClienteDireccion>
-    {
-        
-    }
+    public interface IClienteDirRepository : IGenericRepository<ClienteDireccion> { }
 }

@@ -26,7 +26,7 @@ namespace ApiAnimals.Controllers
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<ActionResult<IEnumerable<ServicioDto>>> Get()
     {
-        var servicios = await _unitOfWork.Servicio.GetAllAsync();
+        var servicios = await _unitOfWork.Servicios.GetAllAsync();
         return _mapper.Map<List<ServicioDto>>(servicios);
     }
 
@@ -36,7 +36,7 @@ namespace ApiAnimals.Controllers
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<ActionResult<ServicioDto>> Get(int id)
     {
-        var servicio = await _unitOfWork.Servicio.GetByIdAsync(id);
+        var servicio = await _unitOfWork.Servicios.GetByIdAsync(id);
         if(servicio == null)
         {
             return NotFound();
@@ -50,7 +50,7 @@ namespace ApiAnimals.Controllers
     public async Task<ActionResult<Servicio>> Post([FromBody] ServicioDto servicioDto)
     {
         var servicio = _mapper.Map<Servicio>(servicioDto);
-        _unitOfWork.Servicio.Add(servicio);
+        _unitOfWork.Servicios.Add(servicio);
         await _unitOfWork.SaveAsync();
         if(servicio == null)
         {
@@ -73,7 +73,7 @@ namespace ApiAnimals.Controllers
         if(servicioDto.Id != id)
             return NotFound();
         var servicio = _mapper.Map<Servicio>(servicioDto);
-        _unitOfWork.Servicio.Update(servicio);
+        _unitOfWork.Servicios.Update(servicio);
         await _unitOfWork.SaveAsync();
         return servicioDto;
     }
@@ -84,10 +84,10 @@ namespace ApiAnimals.Controllers
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<IActionResult> Delete(int id)
     {
-        var servicio = await _unitOfWork.Servicio.GetByIdAsync(id);
+        var servicio = await _unitOfWork.Servicios.GetByIdAsync(id);
         if(servicio == null)
             return NotFound();
-        _unitOfWork.Servicio.Remove(servicio);
+        _unitOfWork.Servicios.Remove(servicio);
         await _unitOfWork.SaveAsync();
         return NoContent();
     }

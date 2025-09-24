@@ -12,7 +12,8 @@ namespace Infrastructure.Repositories
     {
         private readonly AnimalsContext _context;
 
-        public CitaRepository(AnimalsContext context) : base(context)
+        public CitaRepository(AnimalsContext context)
+            : base(context)
         {
             _context = context;
         }

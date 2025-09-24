@@ -7,31 +7,26 @@ using core.Entites;
 
 namespace Core.Entities;
 
-    public class Mascota:BaseEntity
-    {
-        [Required]
+public class Mascota : BaseEntity
+{
+    [Required]
+    public string Nombre { get; set; }
 
-        public string  Nombre {get; set;}
+    [Required]
+    public string Especie { get; set; }
 
-        [Required]
+    [Required]
+    public int IdRaza { get; set; }
 
-        public string  Especie {get; set;}
+    public Raza Raza { get; set; }
 
-        [Required]
+    [Required]
+    public DateTime FechaNacimiento { get; set; }
 
-        public int  IdRaza {get; set;}
-        
-        public Raza Raza {get; set;}
+    [Required]
+    public int IdCliente { get; set; }
 
-        [Required]
+    public Cliente Clientes { get; set; }
 
-        public DateTime FechaNacimiento {get; set;}
-
-        [Required]
-
-        public int IdCliente {get; set;} 
-
-        public Cliente Clientes {get; set;}
-
-        public ICollection<Cita> Citas {get; set;}
-    }
+    public ICollection<Cita> Citas { get; set; }
+}

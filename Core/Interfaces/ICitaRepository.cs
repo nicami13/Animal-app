@@ -6,8 +6,5 @@ using Core.Entities;
 
 namespace Core.Interfaces
 {
-    public interface ICitaRepository: IGenericRepository<Cita>
-    {
-        
-    }
+    public interface ICitaRepository : IGenericRepository<Cita> { }
 }

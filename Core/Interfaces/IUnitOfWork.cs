@@ -7,20 +7,20 @@ namespace Core.Interfaces
 {
     public interface IUnitOfWork
     {
-        IServicioRepository Servicio {get;}
-        IMascotaRepository Mascotas {get;}
-        IPaisRepository Paises {get;}
+        IServicioRepository Servicios { get; }
+        IMascotaRepository Mascotas { get; }
+        IPaisRepository Paises { get; }
 
-        ICitaRepository citas {get;}
-        
-        IRazaRepository Razas {get;}
-        ICiudadRepository Ciudades {get;}
+        ICitaRepository citas { get; }
 
-        IClienteDirRepository ClienteDirecciones {get;}
+        IRazaRepository Razas { get; }
+        ICiudadRepository Ciudades { get; }
 
-        IClienteRepository Clientes {get;}
+        IClienteDirRepository ClienteDirecciones { get; }
 
-        IClienteTelRepository ClienteTelefonos {get;}
+        IClienteRepository Clientes { get; }
+
+        IClienteTelRepository ClienteTelefonos { get; }
         IDepartamentoRepository Departamentos { get; }
 
         Task<int> SaveAsync();

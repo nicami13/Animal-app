@@ -31,6 +31,7 @@ namespace Infrastructure.UnitOfwork
         private DepartamentoRepository _departamentos;
 
         private CitaRepository _citas;
+
         public UnitOfWork(AnimalsContext context)
         {
             _context = context;
@@ -98,7 +99,6 @@ namespace Infrastructure.UnitOfwork
             }
         }
 
-
         public IClienteTelRepository ClienteTelefonos
         {
             get
@@ -123,7 +123,7 @@ namespace Infrastructure.UnitOfwork
             }
         }
 
-        public IServicioRepository ServicioRepository
+        public IServicioRepository Servicios
         {
             get
             {
@@ -131,8 +131,8 @@ namespace Infrastructure.UnitOfwork
                 return _servicios;
             }
         }
-        
-        public IMascotaRepository MascotaRepository
+
+        public IMascotaRepository Mascotas
         {
             get
             {
@@ -141,7 +141,7 @@ namespace Infrastructure.UnitOfwork
             }
         }
 
-        public IRazaRepository RazaRepository
+        public IRazaRepository Razas
         {
             get
             {

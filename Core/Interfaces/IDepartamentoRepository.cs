@@ -6,8 +6,5 @@ using Core.Entities;
 
 namespace Core.Interfaces
 {
-    public interface IDepartamentoRepository:IGenericRepository<Departamento>
-    {
-        
-    }
+    public interface IDepartamentoRepository : IGenericRepository<Departamento> { }
 }

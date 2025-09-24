@@ -5,9 +5,10 @@ using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Repositories;
-public class GenericRepository<T> : IGenericRepository<T> where T : BaseEntity
-{
 
+public class GenericRepository<T> : IGenericRepository<T>
+    where T : BaseEntity
+{
     private readonly AnimalsContext _context;
 
     public GenericRepository(AnimalsContext context)
@@ -15,12 +16,12 @@ public class GenericRepository<T> : IGenericRepository<T> where T : BaseEntity
         _context = context;
     }
 
-    public  void Add(T entity)
+    public void Add(T entity)
     {
         _context.Set<T>().Add(entity);
     }
 
-    public  void AddRange(IEnumerable<T> entities)
+    public void AddRange(IEnumerable<T> entities)
     {
         _context.Set<T>().AddRange(entities);
     }
@@ -35,7 +36,11 @@ public class GenericRepository<T> : IGenericRepository<T> where T : BaseEntity
         return await _context.Set<T>().ToListAsync();
     }
 
-    public virtual async Task<(int totalRegistros, IEnumerable<T> Registros)> GetAllAsync(int pageIndex, int pageSize, string search)
+    public virtual async Task<(int totalRegistros, IEnumerable<T> Registros)> GetAllAsync(
+        int pageIndex,
+        int pageSize,
+        string search
+    )
     {
         var totalRegistros = await _context.Set<T>().CountAsync();
         var registros = await _context
@@ -61,12 +66,12 @@ public class GenericRepository<T> : IGenericRepository<T> where T : BaseEntity
         _context.Set<T>().Remove(entity);
     }
 
-    public  void RemoveRange(IEnumerable<T> entities)
+    public void RemoveRange(IEnumerable<T> entities)
     {
         _context.Set<T>().RemoveRange(entities);
     }
 
-    public  void Update(T entity)
+    public void Update(T entity)
     {
         _context.Set<T>().Update(entity);
     }
